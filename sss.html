@@ -1,0 +1,644 @@
+```html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Портфолио Артёма Скурлатова — Fullstack Developer">
+    <title>Артём Скурлатов | Fullstack Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+        
+        :root {
+            --primary: #00d4ff;
+        }
+        
+        * {
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+        
+        .tailwind-ready {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .hero-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .glass {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(16px);
+        }
+        
+        .section-header {
+            position: relative;
+        }
+        
+        .section-header::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, #00d4ff, #00ff88);
+            bottom: -6px;
+            left: 0;
+            border-radius: 9999px;
+        }
+
+        .project-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgb(0 212 255 / 0.15);
+        }
+    </style>
+</head>
+<body class="tailwind-ready bg-slate-950 text-slate-200">
+    <!-- NAVBAR -->
+    <nav class="glass fixed top-0 left-0 right-0 z-50 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 bg-gradient-to-br from-cyan-400 to-emerald-400 rounded-2xl flex items-center justify-center text-white font-bold text-xl">АС</div>
+                <h1 class="text-2xl font-semibold tracking-tighter hero-font">Артём Скурлатов</h1>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-10 text-sm font-medium">
+                <a href="#about" class="hover:text-cyan-400">Обо мне</a>
+                <a href="#skills" class="hover:text-cyan-400">Навыки</a>
+                <a href="#experience" class="hover:text-cyan-400">Опыт</a>
+                <a href="#projects" class="hover:text-cyan-400">Проекты</a>
+                <a href="#contact" class="hover:text-cyan-400">Контакты</a>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <a href="https://t.me/skurlatov_dev" target="_blank" 
+                   class="px-6 py-2.5 bg-white text-slate-900 rounded-2xl font-semibold flex items-center gap-2 hover:scale-105">
+                    <i class="fa-brands fa-telegram"></i>
+                    Telegram
+                </a>
+                <button onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })"
+                        class="px-6 py-2.5 border border-cyan-400 text-cyan-400 rounded-2xl font-semibold hover:bg-cyan-400 hover:text-slate-950">
+                    Написать мне
+                </button>
+                
+                <!-- Мобильное меню -->
+                <button onclick="toggleMobileMenu()" class="md:hidden text-2xl">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Мобильное меню -->
+        <div id="mobileMenu" class="hidden md:hidd
+Telegram: Contact @skurlatov_dev
+t.me
+
+
+en glass border-t border-slate-800 px-6 py-6">
+            <div class="flex flex-col gap-6 text-lg">
+                <a href="#about" onclick="toggleMobileMenu()" class="hover:text-cyan-400">Обо мне</a>
+                <a href="#skills" onclick="toggleMobileMenu()" class="hover:text-cyan-400">Навыки</a>
+                <a href="#experience" onclick="toggleMobileMenu()" class="hover:text-cyan-400">Опыт</a>
+                <a href="#projects" onclick="toggleMobileMenu()" class="hover:text-cyan-400">Проекты</a>
+                <a href="#contact" onclick="toggleMobileMenu()" class="hover:text-cyan-400">Контакты</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="min-h-screen flex items-center pt-20 bg-gradient-to-br from-slate-950 via-slate-900 to-black">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+            <div class="space-y-8">
+                <div class="inline-flex items-center gap-2 bg-white/10 text-white text-sm font-medium px-6 py-3 rounded-3xl border border-white/20">
+                    <div class="w-3 h-3 bg-emerald-400 rounded-full animate-pulse"></div>
+                    Доступен для проектов
+                </div>
+                
+                <h1 class="text-7xl md:text-8xl font-bold leading-none tracking-tighter hero-font">
+                    Артём
+Скурлатов
+                </h1>
+                
+                <p class="text-3xl text-cyan-400 font-medium">Fullstack Developer</p>
+                
+                <p class="max-w-lg text-xl text-slate-400">
+                    Создаю быстрые, масштабируемые и красивые веб-приложения. 
+                    Более 4 лет опыта в разработке от идеи до продакшена.
+                </p>
+                
+                <div class="flex items-center gap-4">
+                    <a href="#projects" 
+                       class="px-10 py-5 bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-semibold text-lg rounded-3xl flex items-center gap-3">
+                        Смотреть проекты
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    
+                    <a href="https://github.com/Luckylolk" target="_blank"
+                       class="px-8 py-5 border-2 border-white/30 hover:border-white/70 text-white font-semibold text-lg rounded-3xl flex items-center gap-3">
+                        <i class="fa-brands fa-github"></i>
+                        GitHub
+                    </a>
+                </div>
+                
+                <div class="flex items-center gap-8 text-sm">
+                    <div>
+                        <span class="block text-4xl font-semibold text-cyan-400">15+</span>
+                        <span class="text-slate-400">Завершённых проектов</span>
+                    </div>
+                    <div>
+                        <span class="block text-4xl font-semibold text-cyan-400">4</span>
+                        <span class="text-slate-400">года опыта</span>
+                    </div>
+                    <div>
+                        <span class="block text-4xl font-semibold text-cyan-400">98%</span>
+                        <span class="text-slate-400">Удовлетворённость клиентов</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Фото / Аватар -->
+            <div class="relative flex justify-center">
+                <div class="relative">
+                    <div class="absolute -inset-6 bg-gradient-to-br from-cyan-400 to-emerald-400 rounded-[4rem] rotate-6 blur-3xl opacity-30"></div>
+                    <div class="w-80 h-80 md:w-96 md:h-96 bg-slate-900 rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+                        <img src="https://avatars.mds.yandex.net/i?id=badcff0349a80c553dc0c8a89833a798_l-4598658-images-thumbs&n=13
+                             alt="Артём Скурлатов"
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="
+skurlatov - Overview
+skurlatov - Overview
+github.com
+
+
+absolute -bottom-4 -right-4 bg-slate-900 border border-cyan-400 text-cyan-400 text-sm font-mono px-6 py-3 rounded-3xl flex items-center gap-3 shadow-xl">
+                        <i class="fa-solid fa-circle-check"></i>
+                        Сейчас в онлайне
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-12 left-1/2 flex flex-col items-center gap-2 text-xs tracking-widest">
+            ПРОКРУТИТЕ ДЛЯ ДЕТАЛЕЙ
+            <i class="fa-solid fa-chevron-down animate-bounce text-cyan-400"></i>
+        </div>
+    </header>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-24 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-12 gap-16">
+                <div class="md:col-span-5">
+                    <h2 class="section-header text-5xl font-semibold hero-font mb-6">Обо мне</h2>
+                    <p class="text-lg text-slate-400 leading-relaxed">
+                        Привет! Я Артём Скурлатов — fullstack-разработчик из России. 
+                        Обожаю превращать сложные задачи в простые и красивые решения.
+                    </p>
+                    <p class="text-lg text-slate-400 leading-relaxed mt-6">
+                        Работаю с современным стеком: React, Next.js, Node.js, TypeScript, 
+                        PostgreSQL, Docker и облачными сервисами. 
+                        Создаю продукты, которыми реально пользуются.
+                    </p>
+                    
+                    <div class="mt-12 flex items-center gap-8">
+                        <div class="flex -space-x-6">
+                            <div class="w-10 h-10 bg-cyan-400 rounded-2xl flex items-center justify-center ring-4 ring-slate-900">🇷🇺</div>
+                            <div class="w-10 h-10 bg-emerald-400 rounded-2xl flex items-center justify-center ring-4 ring-slate-900">🚀</div>
+                        </div>
+                        <div>
+                            <p class="font-medium">Открыт к релокации и удалённой работе</p>
+                            <p class="text-sm text-slate-400">Москва / удалённо</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:col-span-7">
+                    <div class="bg-slate-950 border border-white/10 rounded-3xl p-8 md:p-12">
+                        <h3 class="text-xl font-semibold mb-8 flex items-center gap-3">
+                            <span class="text-cyan-400">💡</span> 
+                            Что я делаю лучше всего
+                        </h3>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="flex gap-4">
+                                <i class="fa-solid fa-rocket text-4xl text-cyan-400 mt-1"></i>
+                                <div>
+                                    <p class="font-semibold">Быстрая разработка MVP</p>
+                                    <p class="text-slate-400 text-sm">От идеи до рабочего продукта за 2–4 недели</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <i class="fa-solid fa-shield-halved text-4xl text-cyan-400 mt-1"></i>
+                                <div>
+                                    <p class="font-semibold">Масштабируемая архитектура</p>
+                                    <p class="text-slate-400 text-sm">Микросервисы, Docker, Kubernetes</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <i class="fa-solid fa-palette text-4xl text-cyan-400 mt-1"></i>
+                                <div>
+                                    <p class="font-semibold">Pixel-perfect дизайн</p>
+                                    <p class="text-slate-400 text-sm">Tailwind + Fra
+
+
+mer Motion + Figma</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <i class="fa-solid fa-database text-4xl text-cyan-400 mt-1"></i>
+                                <div>
+                                    <p class="font-semibold">Оптимизация производительности</p>
+                                    <p class="text-slate-400 text-sm">Core Web Vitals 100/100</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="section-header text-5xl font-semibold hero-font mb-12 text-center">Технический стек</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                <!-- Frontend -->
+                <div class="bg-slate-900 border border-slate-700 rounded-3xl p-8 hover:border-cyan-400">
+                    <h4 class="font-semibold text-cyan-400 mb-6 flex items-center gap-2"><i class="fa-solid fa-code"></i> Frontend</h4>
+                    <ul class="space-y-4 text-lg">
+                        <li class="flex items-center gap-3"><i class="fa-brands fa-react text-blue-400"></i> React / Next.js</li>
+                        <li class="flex items-center gap-3"><i class="fa-brands fa-js text-yellow-400"></i> TypeScript</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-wind"></i> Tailwind CSS</li>
+                        <li class="flex items-center gap-3"><i class="fa-brands fa-vuejs text-emerald-400"></i> Vue.js (опыт)</li>
+                    </ul>
+                </div>
+                
+                <!-- Backend -->
+                <div class="bg-slate-900 border border-slate-700 rounded-3xl p-8 hover:border-cyan-400">
+                    <h4 class="font-semibold text-cyan-400 mb-6 flex items-center gap-2"><i class="fa-solid fa-server"></i> Backend</h4>
+                    <ul class="space-y-4 text-lg">
+                        <li class="flex items-center gap-3"><i class="fa-brands fa-node-js text-green-400"></i> Node.js / NestJS</li>
+                        <li class="flex items-center gap-3"><i class="fa-brands fa-python text-blue-400"></i> Python / FastAPI</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-leaf text-emerald-400"></i> Express</li>
+                        <li class="flex items-center gap-3">Go (изучаю)</li>
+                    </ul>
+                </div>
+                
+                <!-- Databases -->
+                <div class="bg-slate-900 border border-slate-700 rounded-3xl p-8 hover:border-cyan-400">
+                    <h4 class="font-semibold text-cyan-400 mb-6 flex items-center gap-2"><i class="fa-solid fa-database"></i> Базы данных</h4>
+                    <ul class="space-y-4 text-lg">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-cube"></i> PostgreSQL</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-cube"></i> MongoDB</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-cube"></i> Redis</li>
+                        <li class="flex items-center gap-3">Supabase / Firebase</li>
+                    </ul>
+                </div>
+                
+                <!-- DevOps -->
+                <div class="bg-slate-900 border border-slate-700 rounded-3xl p-8 hover:border-cyan-400">
+                    <h4 class="font-semibold text-cyan-400 mb-6 flex items-center gap-2"><i class="fa-solid fa-cloud"></i> DevOps & Cloud</h4>
+                    <ul class="space-y-4 text-lg">
+                        <li class="flex items-center gap-3"><i class="fa-brands fa-docker"></i> Docker / Docker Compose</li>
+
+
+<li class="flex items-center gap-3">AWS / Yandex Cloud</li>
+                        <li class="flex items-center gap-3">CI/CD (GitHub Actions)</li>
+                        <li class="flex items-center gap-3">Kubernetes (основы)</li>
+                    </ul>
+                </div>
+                
+                <!-- Tools -->
+                <div class="bg-slate-900 border border-slate-700 rounded-3xl p-8 hover:border-cyan-400">
+                    <h4 class="font-semibold text-cyan-400 mb-6 flex items-center gap-2"><i class="fa-solid fa-tools"></i> Инструменты</h4>
+                    <ul class="space-y-4 text-lg">
+                        <li class="flex items-center gap-3"><i class="fa-brands fa-git-alt"></i> Git / GitHub</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-f"></i> Figma</li>
+                        <li class="flex items-center gap-3"><i class="fa-brands fa-figma"></i> Postman / Insomnia</li>
+                        <li class="flex items-center gap-3">Vercel / Railway</li>
+                    </ul>
+                </div>
+                
+                <!-- Soft skills -->
+                <div class="bg-slate-900 border border-slate-700 rounded-3xl p-8 hover:border-cyan-400">
+                    <h4 class="font-semibold text-cyan-400 mb-6 flex items-center gap-2"><i class="fa-solid fa-user-tie"></i> Soft skills</h4>
+                    <ul class="space-y-4 text-lg">
+                        <li>Командная работа</li>
+                        <li>Менторство junior-разработчиков</li>
+                        <li>Английский B2</li>
+                        <li>Agile / Scrum</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="py-24 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="section-header text-5xl font-semibold hero-font mb-12">Опыт работы</h2>
+            
+            <div class="space-y-12">
+                <!-- Job 1 -->
+                <div class="flex flex-col md:flex-row gap-8 bg-slate-950 border border-white/10 rounded-3xl p-8">
+                    <div class="md:w-48 text-sm font-mono text-slate-400">
+                        2024 — настоящее время
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-2xl font-semibold">Senior Fullstack Developer</h3>
+                                <p class="text-cyan-400">Freelance &amp; собственные продукты</p>
+                            </div>
+                            <span class="px-4 py-1 bg-emerald-400 text-slate-950 text-xs font-bold rounded-2xl">Сейчас</span>
+                        </div>
+                        <p class="mt-4 text-slate-400">
+                            Разработка и поддержка SaaS-приложений. Основной стек: Next.js 15 + NestJS + PostgreSQL. 
+                            Запустил 3 продукта с общей выручкой более 1,2 млн ₽.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mt-6">
+                            <span class="text-xs bg-white/10 px-4 py-2 rounded-3xl">Next.js</span>
+                            <span class="text-xs bg-white/10 px-4 py-2 rounded-3xl">NestJS</span>
+                            <span class="text-xs bg-white/10 px-4 py-2 rounded-3xl">PostgreSQL</span>
+                            <span class="text-xs bg-white/10 px-4 py-2 rounded-3xl">Stripe</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Job 2 -->
+                <div class="flex flex-col md:flex-row gap-8 bg-slate-950 border border-white/10 rounded-3xl p-8">
+                    <div class="md:w-48 text-sm font-mono text-slate-400">
+                        2023 — 2024
+                    </di
+
+
+v>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-semibold">Fullstack Developer</h3>
+                        <p class="text-cyan-400">ООО «Цифровые Решения» (Москва)</p>
+                        <p class="mt-4 text-slate-400">
+                            Разработка корпоративного портала для банка. Сократил время загрузки страниц на 65%. 
+                            Внедрил микрофронтенды на Module Federation.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mt-6">
+                            <span class="text-xs bg-white/10 px-4 py-2 rounded-3xl">React</span>
+                            <span class="text-xs bg-white/10 px-4 py-2 rounded-3xl">Node.js</span>
+                            <span class="text-xs bg-white/10 px-4 py-2 rounded-3xl">GraphQL</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Job 3 -->
+                <div class="flex flex-col md:flex-row gap-8 bg-slate-950 border border-white/10 rounded-3xl p-8">
+                    <div class="md:w-48 text-sm font-mono text-slate-400">
+                        2022 — 2023
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-semibold">Junior Fullstack Developer</h3>
+                        <p class="text-cyan-400">Стартап «EduFlow»</p>
+                        <p class="mt-4 text-slate-400">
+                            Создал платформу онлайн-обучения с 12 000 активных пользователей. 
+                            Полностью самостоятельно реализовал систему оплаты и аналитики.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="section-header text-5xl font-semibold hero-font mb-12 text-center">Избранные проекты</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-slate-900 border border-white/10 rounded-3xl overflow-hidden">
+                    <div class="h-56 bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-6xl">
+                        🛒
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-semibold mb-2">Marketly — маркетплейс</h3>
+                        <p class="text-slate-400 text-sm mb-6">
+                            Полноценный маркетплейс с личными кабинетами продавцов, оплатой, чатом и админ-панелью. 
+                            Более 400 заказов в день.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 text-xs bg-white/10 rounded-3xl">Next.js 15</span>
+                            <span class="px-3 py-1 text-xs bg-white/10 rounded-3xl">NestJS</span>
+                            <span class="px-3 py-1 text-xs bg-white/10 rounded-3xl">PostgreSQL</span>
+                            <span class="px-3 py-1 text-xs bg-white/10 rounded-3xl">Stripe</span>
+                            <span class="px-3 py-1 text-xs bg-white/10 rounded-3xl">Docker</span>
+                        </div>
+                        <div class="flex gap-4 mt-8">
+                            <a href="#" class="flex-1 text-center py-4 border border-white/30 rounded-2xl text-sm font-medium hover:bg-white/10">Демо</a>
+                            <a href="#" class="flex-1 text-center py-4 bg-white text-slate-900 rounded-2xl text-sm font-medium">GitHub →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card bg-slate-900 border border-white/10 rounded-3xl overflow-hidden">
+
+
+<div class="h-56 bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-6xl">
+                        📋
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-semibold mb-2">TaskFlow — система задач</h3>
+                        <p class="text-slate-400 text-sm mb-6">
+                            Внутренняя система управления задачами с Kanban, Gantt, интеграцией с Telegram и AI-подсказками.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 text-xs bg-white/10 rounded-3xl">React + TypeScript</span>
+                            <span class="px-3 py-1 text-xs bg-white/10 rounded-3xl">FastAPI</span>
+                            <span class="px-3 py-1 text-xs bg-white/10 rounded-3xl">PostgreSQL</span>
+                            <span class="px-3 py-1 text-xs bg-white/10 rounded-3xl">Redis</span>
+                        </div>
+                        <div class="flex gap-4 mt-8">
+                            <a href="#" class="flex-1 text-center py-4 border border-white/30 rounded-2xl text-sm font-medium hover:bg-white/10">Демо</a>
+                            <a href="#" class="flex-1 text-center py-4 bg-white text-slate-900 rounded-2xl text-sm font-medium">GitHub →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card bg-slate-900 border border-white/10 rounded-3xl overflow-hidden">
+                    <div class="h-56 bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center text-6xl">
+                        📱
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-semibold mb-2">Pulse — трекер привычек</h3>
+                        <p class="text-slate-400 text-sm mb-6">
+                            Мобильно-веб приложение для трекинга привычек и целей с социальной лентой и аналитикой.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 text-xs bg-white/10 rounded-3xl">Next.js App Router</span>
+                            <span class="px-3 py-1 text-xs bg-white/10 rounded-3xl">Supabase</span>
+                            <span class="px-3 py-1 text-xs bg-white/10 rounded-3xl">Tailwind</span>
+                            <span class="px-3 py-1 text-xs bg-white/10 rounded-3xl">PWA</span>
+                        </div>
+                        <div class="flex gap-4 mt-8">
+                            <a href="#" class="flex-1 text-center py-4 border border-white/30 rounded-2xl text-sm font-medium hover:bg-white/10">Демо</a>
+                            <a href="#" class="flex-1 text-center py-4 bg-white text-slate-900 rounded-2xl text-sm font-medium">GitHub →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="py-24 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="section-header text-5xl font-semibold hero-font mb-12">Образование</h2>
+            <div class="max-w-2xl mx-auto bg-slate-950 rounded-3xl p-10 border border-white/10">
+                <div class="flex justify-between">
+                    <div>
+                        <p class="text-2xl font-semibold">Российский технологический университет (МИРЭА)</p>
+                        <p class="text-cyan-400">Прикладная информатика и программирование</p>
+                    </div>
+                    <div class="text-right font-mono text-slate-400">2021 — 2025</div>
+                </div>
+                <p class="mt-8 text-slate-400">
+                    Диплом с отличием. Тема ВКР: «Разработка полнофункциональной SaaS-платформы на стеке Next.js + NestJS».
+
+
+</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl p-16 text-center">
+                <h2 class="text-6xl font-semibold hero-font mb-6">Давайте создадим что-то крутое вместе</h2>
+                <p class="text-2xl text-slate-300 mb-12">Напишите мне — отвечу в течение 2 часов</p>
+                
+                <div class="flex flex-col md:flex-row gap-6 max-w-lg mx-auto">
+                    <input type="text" id="name" placeholder="Ваше имя" 
+                           class="flex-1 bg-white/10 border border-white/20 focus:border-cyan-400 rounded-3xl px-8 py-7 text-lg placeholder:text-slate-400">
+                    <input type="email" id="email" placeholder="Email или Telegram" 
+                           class="flex-1 bg-white/10 border border-white/20 focus:border-cyan-400 rounded-3xl px-8 py-7 text-lg placeholder:text-slate-400">
+                </div>
+                
+                <textarea id="message" rows="5" placeholder="Расскажите о вашем проекте..." 
+                          class="mt-6 w-full max-w-lg mx-auto bg-white/10 border border-white/20 focus:border-cyan-400 rounded-3xl px-8 py-7 text-lg placeholder:text-slate-400"></textarea>
+                
+                <button onclick="sendFakeMessage()" 
+                        class="mt-8 px-16 py-7 bg-cyan-400 hover:bg-cyan-300 text-slate-950 text-2xl font-semibold rounded-3xl flex items-center gap-4 mx-auto">
+                    Отправить сообщение
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+                
+                <div class="mt-12 flex justify-center gap-8 text-4xl">
+                    <a href="https://t.me/skurlatov_dev" class="hover:text-cyan-400"><i class="fa-brands fa-telegram"></i></a>
+                    <a href="https://github.com/skurlatov" class="hover:text-cyan-400"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://linkedin.com/in/skurlatov" class="hover:text-cyan-400"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 text-center text-slate-500 text-sm flex flex-col md:flex-row justify-between items-center gap-4">
+            <p>© 2026 Артём Скурлатов. Все права защищены.</p>
+            <p class="flex items-center gap-2">
+                Сделано с ❤️ и 
+                <span class="text-cyan-400">Next.js</span>
+            </p>
+            <p class="flex items-center gap-1">
+                <i class="fa-solid fa-code"></i> 
+                Готов к новому проекту?
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Tailwind script init
+        function initializeTailwind() {
+            return {
+                config(userConfig = {}) {
+                    return {
+                        content: [],
+                        theme: {
+                            extend: {},
+                        },
+                        plugins: [],
+                        ...userConfig,
+                    }
+                },
+                theme(userConfig = {}) {
+                    return {
+                        ...this.defaultTheme(),
+                        ...userConfig,
+                    }
+                },
+                defaultTheme() {
+                    return {
+                        fontFamily: {
+                            sans: ['Inter', 'system_ui', 'sans-serif'],
+                            mono: ['Space Grotesk', 'monospace']
+                        }
+                    }
+                }
+            }
+        }
+        
+        // Инициализация Tailwind
+        document.addEventListener('DOMContentLoaded', () => {
+            const config =
+
+
+initializeTailwind().config()
+            return config
+        })
+        
+        // Мобильное меню
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu')
+            menu.classList.toggle('hidden')
+        }
+        
+        // Фейковая отправка формы (для демо)
+        function sendFakeMessage() {
+            const btns = document.querySelectorAll('button')
+            const originalText = btns[btns.length-1].innerHTML
+            
+            btns[btns.length-1].innerHTML = `
+                <i class="fa-solid fa-spinner animate-spin"></i> 
+                Отправляем...
+            `
+            setTimeout(() => {
+                btns[btns.length-1].classList.add('!bg-emerald-400')
+                btns[btns.length-1].innerHTML = `
+                    ✅ Сообщение отправлено!
+                `
+                
+                setTimeout(() => {
+                    alert('🎉 Спасибо! Артём свяжется с вами в ближайшее время.')
+                    // Сброс формы
+                    btns[btns.length-1].innerHTML = originalText
+                    btns[btns.length-1].classList.remove('!bg-emerald-400')
+                    document.getElementById('name').value = ''
+                    document.getElementById('email').value = ''
+                    document.getElementById('message').value = ''
+                }, 2200)
+            }, 1500)
+        }
+        
+        console.log('%c✅ Портфолио Артёма Скурлатова успешно загружено!', 'color:#00d4ff; font-family:Space Grotesk; font-size:18px')
+    </script>
+</body>
+</html>
+```

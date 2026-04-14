@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Артур Хачатуров — Fullstack Developer. Создаю современные веб-приложения с React, Next.js, Node.js и Python.">
+    <title>Артур Хачатуров | Fullstack Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&display=swap');
+        
+        :root {
+            --primary: #00d4ff;
+        }
+        
+        * {
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #00d4ff;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .project-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgb(0 212 255 / 0.15);
+        }
+        
+        .section-header {
+            position: relative;
+        }
+        
+        .section-header:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, #00d4ff, #0099cc);
+            bottom: -8px;
+            left: 0;
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-white font-sans">
+    <!-- NAVBAR -->
+    <nav class="bg-zinc-950 border-b border-zinc-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+            <!-- Лого -->
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-2xl flex items-center justify-center text-xl font-bold">AH</div>
+                <h1 class="text-2xl font-semibold tracking-tight">Артур Хачатуров</h1>
+            </div>
+
+            <!-- Меню для десктопа -->
+            <div class="hidden md:flex items-center gap-10 text-sm font-medium">
+                <a href="#about" class="nav-link">Обо мне</a>
+                <a href="#skills" class="nav-link">Навыки</a>
+                <a href="#projects" class="nav-link">Проекты</a>
+                <a href="#experience" class="nav-link">Опыт</a>
+                <a href="#contact" class="nav-link">Контакты</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <!-- GitHub -->
+                <a href="https://github.com/arturkhachaturov" target="_blank" 
+                   class="flex items-center gap-2 px-4 py-2 rounded-2xl bg-zinc-900 hover:bg-white hover:text-zinc-950 border border-zinc-700 text-sm font-medium">
+                    <i class="fab fa-github"></i>
+                    GitHub
+                </a>
+                
+                <!-- Кнопка скачивания резюме -->
+                <a href="#" onclick="downloadResume()" 
+                   class="flex items-center gap-2 px-6 py-2 bg-white text-zinc-950 rounded-2xl font-semibold hover:scale-105">
+                    <i class="fas fa-download"></i>
+                    <span>Резюме PDF</span>
+                </a>
+
+                <!-- Мобильное меню -->
+                <button onclick="toggleMobileMenu()" class="md:hidden text-2xl">
+                    <i class="fas fa-bars" id=
+
+
+enu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Мобильное меню -->
+        <div id="mobile-menu" class="hidden md:hidden bg-zinc-900 border-t border-zinc-800 px-6 py-6">
+            <div class="flex flex-col gap-6 text-lg">
+                <a href="#about" onclick="toggleMobileMenu()" class="py-2">Обо мне</a>
+                <a href="#skills" onclick="toggleMobileMenu()" class="py-2">Навыки</a>
+                <a href="#projects" onclick="toggleMobileMenu()" class="py-2">Проекты</a>
+                <a href="#experience" onclick="toggleMobileMenu()" class="py-2">Опыт</a>
+                <a href="#contact" onclick="toggleMobileMenu()" class="py-2">Контакты</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero-bg min-h-screen flex items-center pt-16">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+            <div class="space-y-8">
+                <div class="inline-flex items-center gap-2 bg-white/10 text-white text-sm font-medium px-6 py-2 rounded-3xl backdrop-blur-md border border-white/20">
+                    <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                    Доступен для фриланса и работы в штате
+                </div>
+                
+                <h1 class="text-6xl md:text-7xl font-bold tracking-tighter leading-none">
+                    Привет, я Артур Хачатуров
+                </h1>
+                
+                <p class="text-3xl text-cyan-400 font-semibold">Fullstack Developer</p>
+                
+                <p class="text-xl text-zinc-400 max-w-lg">
+                    Создаю быстрые, масштабируемые и красивые веб-приложения. 
+                    5+ лет опыта в разработке от идеи до продакшена.
+                </p>
+
+                <div class="flex items-center gap-4">
+                    <a href="#projects" 
+                       class="px-8 py-5 bg-cyan-400 hover:bg-cyan-300 text-zinc-950 font-semibold text-lg rounded-3xl flex items-center gap-3">
+                        Смотреть проекты
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    
+                    <a href="#contact" 
+                       class="px-8 py-5 border-2 border-white/70 hover:border-white text-lg font-medium rounded-3xl flex items-center gap-3">
+                        Написать мне
+                    </a>
+                </div>
+
+                <div class="flex items-center gap-10 text-sm">
+                    <div>
+                        <span class="text-cyan-400 font-mono text-4xl font-bold">35+</span>
+                        <p class="text-zinc-400">Завершённых проектов</p>
+                    </div>
+                    <div>
+                        <span class="text-cyan-400 font-mono text-4xl font-bold">5</span>
+                        <p class="text-zinc-400">Лет опыта</p>
+                    </div>
+                    <div>
+                        <span class="text-cyan-400 font-mono text-4xl font-bold">12</span>
+                        <p class="text-zinc-400">Клиентов и компаний</p>
+                    </div>
+                </div>
+
+                <!-- Соцсети -->
+                <div class="flex gap-6 text-3xl">
+                    <a href="https://t.me/arturkhachaturov" target="_blank" class="hover:text-cyan-400"><i class="fab fa-telegram"></i></a>
+                    <a href="https://linkedin.com/in/arturkhachaturov" target="_blank" class="hover:text-cyan-400"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/arturkhachaturov" target="_blank" class="hover:text-cyan-400"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+
+            <!-- Фото + анимация -->
+            <div class="relative flex justify-center">
+                <div class="relative">
+                    <!-- Градиентный круг -->
+                    <div class="absolute -inset-8 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-[4rem] blur-3xl opacity-30 animate-pulse"></div>
+<!-- Фото -->
+                    <div class="w-80 h-80 md:w-96 md:h-96 bg-zinc-900 rounded-3xl overflow-hidden border-4 border-cyan-400/30 relative z-10 shadow-2xl">
+                        <img src="https://img.freepik.com/premium-photo/cute-gray-kitten-fur-white-blanket-nature_407837-767.jpg" 
+                             alt="Артур Хачатуров — Fullstack Developer"
+                             class="w-full h-full object-cover grayscale-[0.3] hover:grayscale-0">
+                        <!-- Плейсхолдер, если нет своей фото — замените ссылку -->
+                    </div>
+                    
+                    <!-- Бейдж "Fullstack" -->
+                    <div class="absolute -bottom-4 -right-4 bg-zinc-900 text-white text-sm font-bold px-6 py-3 rounded-3xl shadow-xl flex items-center gap-2 border border-cyan-400/50">
+                        <i class="fas fa-code"></i>
+                        FULLSTACK
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ABOUT -->
+    <section id="about" class="max-w-7xl mx-auto px-6 py-24">
+        <div class="grid md:grid-cols-12 gap-16 items-center">
+            <div class="md:col-span-7">
+                <span class="text-cyan-400 uppercase tracking-widest text-sm font-medium">Кто я</span>
+                <h2 class="text-5xl font-semibold mt-2 mb-8 section-header">Артур Хачатуров</h2>
+                
+                <div class="prose prose-invert text-lg text-zinc-300 space-y-6">
+                    <p>
+                        Привет! Я fullstack-разработчик из России. Более 5 лет создаю цифровые продукты, 
+                        которые решают реальные бизнес-задачи. Работаю как с фронтендом, так и с бэкендом, 
+                        люблю чистый код и современные технологии.
+                    </p>
+                    <p>
+                        Сейчас фокусируюсь на создании высоконагруженных приложений с использованием 
+                        Next.js, TypeScript, NestJS и облачных сервисов. 
+                        Ранее работал в продуктовых IT-компаниях и на фрилансе с стартапами из Европы и СНГ.
+                    </p>
+                    <p class="font-medium text-cyan-400">
+                        Моя суперсила — превращать сложные идеи в удобные и быстрые интерфейсы.
+                    </p>
+                </div>
+            </div>
+
+            <div class="md:col-span-5 bg-zinc-900 rounded-3xl p-8">
+                <h3 class="text-xl font-medium mb-6 flex items-center gap-3">
+                    <i class="fas fa-heart text-red-500"></i>
+                    Люблю в разработке
+                </h3>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-4"><span class="text-cyan-400 text-2xl">01</span> Чистый, масштабируемый код</li>
+                    <li class="flex items-start gap-4"><span class="text-cyan-400 text-2xl">02</span> UX/UI, который хочется использовать</li>
+                    <li class="flex items-start gap-4"><span class="text-cyan-400 text-2xl">03</span> Оптимизация производительности</li>
+                    <li class="flex items-start gap-4"><span class="text-cyan-400 text-2xl">04</span> Работа в команде и менторство</li>
+                    <li class="flex items-start gap-4"><span class="text-cyan-400 text-2xl">05</span> Новые технологии и эксперименты</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="bg-zinc-900 py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-cyan-400 uppercase text-sm">Технологии</span>
+                <h2 class="text-5xl font-semibold mt-3">Мой стек</h2>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- Frontend -->
+                <div class="bg-zinc-950 rounded-3xl p-8">
+                    <h4 class="text-cyan-400 font-medium mb-6 text-lg flex items-center gap-2"><i class="fas fa-laptop-code"></i> Frontend</h4>
+
+
+<div class="flex flex-wrap gap-3">
+                        <span class="px-5 py-2 bg-zinc-900 rounded-2xl text-sm">React</span>
+                        <span class="px-5 py-2 bg-zinc-900 rounded-2xl text-sm">Next.js 15</span>
+                        <span class="px-5 py-2 bg-zinc-900 rounded-2xl text-sm">TypeScript</span>
+                        <span class="px-5 py-2 bg-zinc-900 rounded-2xl text-sm">Tailwind CSS</span>
+                        <span class="px-5 py-2 bg-zinc-900 rounded-2xl text-sm">Vue 3</span>
+                        <span class="px-5 py-2 bg-zinc-900 rounded-2xl text-sm">Redux / Zustand</span>
+                    </div>
+                </div>
+
+                <!-- Backend -->
+                <div class="bg-zinc-950 rounded-3xl p-8">
+                    <h4 class="text-cyan-400 font-medium mb-6 text-lg flex items-center gap-2"><i class="fas fa-server"></i> Backend</h4>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-5 py-2 bg-zinc-900 rounded-2xl text-sm">Node.js</span>
+                        <span class="px-5 py-2 bg-zinc-900 rounded-2xl text-sm">NestJS</span>
+                        <span class="px-5 py-2 bg-zinc-900 rounded-2xl text-sm">Express</span>
+                        <span class="px-5 py-2 bg-zinc-900 rounded-2xl text-sm">Python / Django</span>
+                        <span class="px-5 py-2 bg-zinc-900 rounded-2xl text-sm">FastAPI</span>
+                        <span class="px-5 py-2 bg-zinc-900 rounded-2xl text-sm">GraphQL</span>
+                    </div>
+                </div>
+
+                <!-- Databases & Cloud -->
+                <div class="bg-zinc-950 rounded-3xl p-8">
+                    <h4 class="text-cyan-400 font-medium mb-6 text-lg flex items-center gap-2"><i class="fas fa-database"></i> Базы &amp; Облака</h4>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-5 py-2 bg-zinc-900 rounded-2xl text-sm">PostgreSQL</span>
+                        <span class="px-5 py-2 bg-zinc-900 rounded-2xl text-sm">MongoDB</span>
+                        <span class="px-5 py-2 bg-zinc-900 rounded-2xl text-sm">Redis</span>
+                        <span class="px-5 py-2 bg-zinc-900 rounded-2xl text-sm">AWS</span>
+                        <span class="px-5 py-2 bg-zinc-900 rounded-2xl text-sm">Docker</span>
+                        <span class="px-5 py-2 bg-zinc-900 rounded-2xl text-sm">Kubernetes</span>
+                    </div>
+                </div>
+
+                <!-- Tools -->
+                <div class="bg-zinc-950 rounded-3xl p-8">
+                    <h4 class="text-cyan-400 font-medium mb-6 text-lg flex items-center gap-2"><i class="fas fa-tools"></i> Инструменты</h4>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-5 py-2 bg-zinc-900 rounded-2xl text-sm">Git / GitHub</span>
+                        <span class="px-5 py-2 bg-zinc-900 rounded-2xl text-sm">Figma</span>
+                        <span class="px-5 py-2 bg-zinc-900 rounded-2xl text-sm">Jest / Playwright</span>
+                        <span class="px-5 py-2 bg-zinc-900 rounded-2xl text-sm">CI/CD</span>
+                        <span class="px-5 py-2 bg-zinc-900 rounded-2xl text-sm">Postman</span>
+                        <span class="px-5 py-2 bg-zinc-900 rounded-2xl text-sm">Linux</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="max-w-7xl mx-auto px-6 py-24">
+        <div class="flex justify-between items-end mb-12">
+            <div>
+                <span class="text-cyan-400 uppercase text-sm">Портфолио</span>
+                <h2 class="text-5xl font-semibold section-header">Избранные проекты</h2>
+            </div>
+            <a href="https://github.com/arturkhachaturov" target="_blank" 
+               class="flex items-center text-cyan-400 hover:text-white group text-sm font-medium">
+                Все проекты на GitHub 
+                <span class="ml-2 group-hover:tr
+
+
+anslate-x-1">→</span>
+            </a>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Проект 1 -->
+            <div class="project-card bg-zinc-900 rounded-3xl overflow-hidden">
+                <div class="h-56 bg-gradient-to-br from-purple-600 to-cyan-400 flex items-center justify-center text-6xl">
+                    🛒
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-semibold mb-2">E-commerce платформа «MarketFlow»</h3>
+                    <p class="text-zinc-400 mb-6">Полноценный маркетплейс с личным кабинетом, оплатой, админ-панелью и интеграцией с СДЭК и Яндекс.Касса.</p>
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="text-xs bg-black px-3 py-1 rounded-2xl">Next.js 15</span>
+                        <span class="text-xs bg-black px-3 py-1 rounded-2xl">NestJS</span>
+                        <span class="text-xs bg-black px-3 py-1 rounded-2xl">PostgreSQL</span>
+                        <span class="text-xs bg-black px-3 py-1 rounded-2xl">Stripe</span>
+                        <span class="text-xs bg-black px-3 py-1 rounded-2xl">Docker</span>
+                    </div>
+                    <a href="#" class="flex items-center justify-center gap-2 py-4 bg-white text-zinc-950 rounded-3xl font-medium">
+                        Посмотреть проект <i class="https://github.com/Luckylolk"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Проект 2 -->
+            <div class="project-card bg-zinc-900 rounded-3xl overflow-hidden">
+                <div class="h-56 bg-gradient-to-br from-amber-500 to-red-500 flex items-center justify-center text-6xl">
+                    📊
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-semibold mb-2">Аналитический дашборд для ритейла</h3>
+                    <p class="text-zinc-400 mb-6">Реал-тайм аналитика продаж, прогнозы и визуализация данных для сети магазинов (500+ точек).</p>
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="text-xs bg-black px-3 py-1 rounded-2xl">React + Recharts</span>
+                        <span class="text-xs bg-black px-3 py-1 rounded-2xl">FastAPI</span>
+                        <span class="text-xs bg-black px-3 py-1 rounded-2xl">ClickHouse</span>
+                        <span class="text-xs bg-black px-3 py-1 rounded-2xl">WebSocket</span>
+                    </div>
+                    <a href="#" class="flex items-center justify-center gap-2 py-4 bg-white text-zinc-950 rounded-3xl font-medium">
+                        Посмотреть проект <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Проект 3 -->
+            <div class="project-card bg-zinc-900 rounded-3xl overflow-hidden">
+                <div class="h-56 bg-gradient-to-br from-emerald-400 to-cyan-500 flex items-center justify-center text-6xl">
+                    💬
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-semibold mb-2">Корпоративный мессенджер + CRM</h3>
+                    <p class="text-zinc-400 mb-6">Внутренняя коммуникация + управление задачами и клиентами. Более 1200 активных пользователей.</p>
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="text-xs bg-black px-3 py-1 rounded-2xl">Vue 3 + Pinia</span>
+                        <span class="text-xs bg-black px-3 py-1 rounded-2xl">Node.js + Socket.io</span>
+                        <span class="text-xs bg-black px-3 py-1 rounded-2xl">MongoDB</span>
+                        <span class="text-xs bg-black px-3 py-1 rounded-2xl">Microservices</span>
+                    </div>
+                    <a href="#" class="flex items-center justify-center gap-2 py-4 bg-white text-zinc-950 rounded-3xl font-medium">
+                        Посмотреть проект <i class="fas fa-external-link-alt"></i>
+                    <
+
+/a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="max-w-7xl mx-auto px-6 py-24 bg-zinc-950">
+        <div class="text-center mb-16">
+            <span class="text-cyan-400 uppercase text-sm">Карьера</span>
+            <h2 class="text-5xl font-semibold mt-3 section-header">Опыт работы</h2>
+        </div>
+
+        <div class="space-y-12 max-w-4xl mx-auto">
+            <div class="flex flex-col md:flex-row gap-8 border-l-2 border-cyan-400 pl-8 relative">
+                <div class="md:w-48 flex-shrink-0">
+                    <div class="text-cyan-400 font-mono">2024 — настоящее время</div>
+                    <div class="font-semibold">Senior Fullstack Developer</div>
+                    <div class="text-zinc-400">FinTech Startup «PayFlow»</div>
+                </div>
+                <div>
+                    <p class="text-zinc-300">Разработка и поддержка B2B-платформы для приёма платежей. Переписал legacy-код на Next.js + NestJS. Увеличил скорость загрузки на 340%.</p>
+                    <div class="mt-4 text-xs uppercase tracking-widest text-zinc-400">TypeScript • Next.js • NestJS • AWS • Stripe</div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-8 border-l-2 border-cyan-400 pl-8 relative">
+                <div class="md:w-48 flex-shrink-0">
+                    <div class="text-cyan-400 font-mono">2022 — 2024</div>
+                    <div class="font-semibold">Fullstack Developer</div>
+                    <div class="text-zinc-400">ООО «Инновационные Решения» (Москва)</div>
+                </div>
+                <div>
+                    <p class="text-zinc-300">Создание внутренней ERP-системы для управления складом и логистикой. Разработал модули аналитики и интеграции с 1С.</p>
+                    <div class="mt-4 text-xs uppercase tracking-widest text-zinc-400">React • Django • PostgreSQL • Docker</div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-8 border-l-2 border-cyan-400 pl-8 relative">
+                <div class="md:w-48 flex-shrink-0">
+                    <div class="text-cyan-400 font-mono">2021 — 2022</div>
+                    <div class="font-semibold">Frontend Developer → Fullstack</div>
+                    <div class="text-zinc-400">Freelance (Upwork + FL.ru)</div>
+                </div>
+                <div>
+                    <p class="text-zinc-300">Более 15 проектов для клиентов из Европы и СНГ: лендинги, SaaS-продукты, дашборды.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="bg-gradient-to-br from-zinc-900 to-black py-24">
+        <div class="max-w-2xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-5xl font-semibold mb-4">Давайте работать вместе</h2>
+                <p class="text-xl text-zinc-400">Готов обсудить ваш проект или предложение о работе</p>
+            </div>
+
+            <form id="contact-form" class="space-y-8">
+                <div class="grid grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm mb-2">Имя</label>
+                        <input type="text" id="name" required
+                               class="w-full bg-zinc-800 border border-zinc-700 focus:border-cyan-400 rounded-3xl px-7 py-6 outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-sm mb-2">Email</label>
+                        <input type="email" id="email" required
+                               class="w-full bg-zinc-800 border border-zinc-700 focus:border-cyan-400 rounded-3xl px-7 py-6 outline-none">
+                    </div>
+                </div>
+                
+                <div>
+                    <label class="block text-sm mb-2">Сообщение</label>
+                    <textarea id="message" rows="6" required
+                              class="w-full bg-zinc-800 border border-zinc-700

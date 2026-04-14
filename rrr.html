@@ -1,0 +1,376 @@
+```html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Портфолио Романа Дудникова — Fullstack Developer">
+    <title>Роман Дудников | Fullstack Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+        
+        :root {
+            --primary: #22d3ee;
+        }
+        
+        * {
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+        
+        .hero-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .glass {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(16px);
+        }
+        
+        .section-header::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(to right, #22d3ee, #a78bfa);
+            bottom: -8px;
+            left: 0;
+            border-radius: 9999px;
+        }
+
+        .project-card {
+            transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 30px 60px -15px rgb(34 211 238 / 0.25);
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-zinc-200 font-sans">
+    <!-- NAVBAR -->
+    <nav class="glass fixed top-0 left-0 right-0 z-50 border-b border-zinc-800">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-gradient-to-br from-cyan-400 to-violet-500 rounded-2xl flex items-center justify-center text-white font-bold text-2xl">РД</div>
+                <h1 class="text-2xl font-semibold tracking-tighter hero-font">Роман Дудников</h1>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-10 text-sm font-medium">
+                <a href="#about" class="hover:text-cyan-400">Обо мне</a>
+                <a href="#skills" class="hover:text-cyan-400">Стек</a>
+                <a href="#experience" class="hover:text-cyan-400">Опыт</a>
+                <a href="#projects" class="hover:text-cyan-400">Проекты</a>
+                <a href="#contact" class="hover:text-cyan-400">Контакты</a>
+            </div>
+            
+            <a href="https://t.me/dudnikov_dev" target="_blank"
+               class="px-6 py-3 bg-white text-zinc-900 rounded-3xl font-semibold flex items-center gap-2 hover:scale-105 active:scale-95">
+                <i class="fa-brands fa-telegram"></i>
+                Telegram
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="min-h-screen flex items-center pt-20 bg-gradient-to-br from-zinc-950 via-zinc-900 to-black">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+            <div class="space-y-8">
+                <div class="inline-flex items-center gap-2 bg-emerald-500/10 text-emerald-400 text-sm font-medium px-5 py-2.5 rounded-3xl">
+                    <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                    Открыт к новым проектам
+                </div>
+                
+                <h1 class="text-7xl md:text-8xl font-bold leading-none tracking-tighter hero-font">
+                    Роман
+Дудников
+                </h1>
+                
+                <p class="text-4xl text-cyan-400 font-medium">Fullstack Developer</p>
+                
+                <p c
+Telegram: Contact @dudnikov_dev
+Telegram: Contact @dudnikov_dev
+t.me
+
+
+lass="max-w-md text-xl text-zinc-400">
+                    Разрабатываю современные веб-приложения и SaaS-сервисы. 
+                    5+ лет опыта. Чистый код, отличная производительность и внимание к деталям.
+                </p>
+                
+                <div class="flex items-center gap-4">
+                    <a href="#projects" 
+                       class="px-10 py-5 bg-cyan-400 text-zinc-950 font-semibold rounded-3xl text-lg flex items-center gap-3 hover:bg-cyan-300">
+                        Мои проекты
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="https://github.com/Luckylolk" target="_blank"
+                       class="px-8 py-5 border border-zinc-300 hover:border-white text-lg rounded-3xl flex items-center gap-3">
+                        <i class="fa-brands fa-github"></i>
+                        GitHub
+                    </a>
+                </div>
+                
+                <div class="flex gap-10 text-sm">
+                    <div>
+                        <span class="text-5xl font-semibold text-cyan-400">30+</span>
+
+                        <span class="text-zinc-400">Проектов</span>
+                    </div>
+                    <div>
+                        <span class="text-5xl font-semibold text-cyan-400">5</span>
+
+                        <span class="text-zinc-400">лет опыта</span>
+                    </div>
+                    <div>
+                        <span class="text-5xl font-semibold text-cyan-400">100%</span>
+
+                        <span class="text-zinc-400">Клиенты довольны</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="relative flex justify-center">
+                <div class="relative">
+                    <div class="absolute -inset-8 bg-gradient-to-br from-cyan-400 via-violet-500 to-fuchsia-500 rounded-[3.5rem] rotate-6 opacity-20 blur-3xl"></div>
+                    <img src="https://avatars.mds.yandex.net/i?id=a4bbbb631ea5771fe82d2a30e4dded53_l-5839308-images-thumbs&n=13" 
+                         alt="Роман Дудников"
+                         class="w-96 h-96 object-cover rounded-3xl border-4 border-zinc-800 shadow-2xl">
+                    <div class="absolute -bottom-5 -right-5 bg-zinc-900 border border-cyan-400 px-6 py-3 rounded-3xl text-sm flex items-center gap-3">
+                        <i class="fa-solid fa-circle text-emerald-400"></i>
+                        Online
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-24 bg-zinc-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-12 gap-16 items-center">
+                <div class="md:col-span-5">
+                    <h2 class="section-header text-5xl font-semibold hero-font mb-8">Обо мне</h2>
+                    <p class="text-lg text-zinc-400 leading-relaxed">
+                        Привет! Я Роман Дудников — fullstack-разработчик из Москвы. 
+                        Специализируюсь на создании быстрых, надёжных и масштабируемых веб-приложений.
+                    </p>
+                    <p class="text-lg text-zinc-400 leading-relaxed mt-6">
+                        Люблю работать с современными технологиями и превращать сложные бизнес-задачи в удобные цифровые продукты.
+                    </p>
+                </div>
+                <div class="md:col-span-7 bg-zinc-950 border border-zinc-800 rounded-3xl p-10">
+                    <h3 class="text-xl mb-6 font-medium text-cyan-400">Почему со мной удобно работать</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="flex gap-4">
+                            <i class="fa-solid fa-bolt text-4xl text-cyan-400"></i>
+                            <div>
+                                <p class="font-semibold">Быстрый запуск</p>
+                                <p class="text-sm text-zinc-400">MVP за 3–4
+dudnikov - Overview
+dudnikov - Overview
+github.com
+
+
+недели</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <i class="fa-solid fa-shield-halved text-4xl text-cyan-400"></i>
+                            <div>
+                                <p class="font-semibold">Чистая архитектура</p>
+                                <p class="text-sm text-zinc-400">TypeScript, SOLID, TDD</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <i class="fa-solid fa-mobile-screen text-4xl text-cyan-400"></i>
+                            <div>
+                                <p class="font-semibold">Мобильная адаптивность</p>
+                                <p class="text-sm text-zinc-400">PWA + отличный UX</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <i class="fa-solid fa-cloud text-4xl text-cyan-400"></i>
+                            <div>
+                                <p class="font-semibold">DevOps</p>
+                                <p class="text-sm text-zinc-400">Docker, CI/CD, облака</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-5xl font-semibold hero-font text-center mb-16">Технологический стек</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                <div class="bg-zinc-900 p-8 rounded-3xl border border-zinc-800 hover:border-cyan-400">
+                    <h4 class="text-cyan-400 mb-5 text-lg font-semibold">Frontend</h4>
+                    <ul class="space-y-3 text-lg">
+                        <li>Next.js 14/15 (App Router)</li>
+                        <li>React + TypeScript</li>
+                        <li>Tailwind CSS</li>
+                        <li>Shadcn/ui + Radix</li>
+                    </ul>
+                </div>
+                <div class="bg-zinc-900 p-8 rounded-3xl border border-zinc-800 hover:border-cyan-400">
+                    <h4 class="text-cyan-400 mb-5 text-lg font-semibold">Backend</h4>
+                    <ul class="space-y-3 text-lg">
+                        <li>NestJS</li>
+                        <li>Node.js + Express</li>
+                        <li>Python + FastAPI</li>
+                        <li>Go (в процессе)</li>
+                    </ul>
+                </div>
+                <div class="bg-zinc-900 p-8 rounded-3xl border border-zinc-800 hover:border-cyan-400">
+                    <h4 class="text-cyan-400 mb-5 text-lg font-semibold">Базы данных</h4>
+                    <ul class="space-y-3 text-lg">
+                        <li>PostgreSQL</li>
+                        <li>MongoDB</li>
+                        <li>Redis</li>
+                        <li>Prisma / Drizzle ORM</li>
+                    </ul>
+                </div>
+                <div class="bg-zinc-900 p-8 rounded-3xl border border-zinc-800 hover:border-cyan-400">
+                    <h4 class="text-cyan-400 mb-5 text-lg font-semibold">Другое</h4>
+                    <ul class="space-y-3 text-lg">
+                        <li>Docker + Docker Compose</li>
+                        <li>AWS / Yandex Cloud</li>
+                        <li>GitHub Actions</li>
+                        <li>WebSocket, gRPC</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="py-24 bg-zinc-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-5xl font-semibold hero-font mb-12">Опыт работы</h2>
+            
+            <div class="space-y-10">
+                <div class="flex flex-col md:flex-row gap-10 bg-zinc-
+
+
+950 border border-zinc-800 rounded-3xl p-8 md:p-10">
+                    <div class="md:w-52 text-zinc-400 font-medium">2024 — настоящее время</div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-semibold">Senior Fullstack Developer</h3>
+                        <p class="text-cyan-400">Фриланс + собственные продукты</p>
+                        <p class="mt-4 text-zinc-400">
+                            Разработка SaaS-платформ и высоконагруженных сервисов. 
+                            Запустил 4 коммерческих продукта.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col md:flex-row gap-10 bg-zinc-950 border border-zinc-800 rounded-3xl p-8 md:p-10">
+                    <div class="md:w-52 text-zinc-400 font-medium">2023 — 2024</div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-semibold">Fullstack Developer</h3>
+                        <p class="text-cyan-400">ООО «ИнноТех»</p>
+                        <p class="mt-4 text-zinc-400">
+                            Разработка внутренней CRM-системы и клиентского портала. 
+                            Увеличил производительность на 70%.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-5xl font-semibold hero-font text-center mb-16">Избранные проекты</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="project-card bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden">
+                    <div class="h-60 bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center text-7xl">📦</div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-semibold">Logistix — логистическая платформа</h3>
+                        <p class="text-zinc-400 mt-2">Система управления доставками, складом и трекингом в реальном времени.</p>
+                        <div class="flex flex-wrap gap-2 mt-6">
+                            <span class="text-xs bg-zinc-800 px-4 py-2 rounded-3xl">Next.js</span>
+                            <span class="text-xs bg-zinc-800 px-4 py-2 rounded-3xl">NestJS</span>
+                            <span class="text-xs bg-zinc-800 px-4 py-2 rounded-3xl">PostgreSQL</span>
+                            <span class="text-xs bg-zinc-800 px-4 py-2 rounded-3xl">WebSocket</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden">
+                    <div class="h-60 bg-gradient-to-br from-emerald-500 to-cyan-500 flex items-center justify-center text-7xl">💼</div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-semibold">FreelanceHub — биржа фриланса</h3>
+                        <p class="text-zinc-400 mt-2">Платформа для поиска специалистов и управления проектами.</p>
+                        <div class="flex flex-wrap gap-2 mt-6">
+                            <span class="text-xs bg-zinc-800 px-4 py-2 rounded-3xl">React</span>
+                            <span class="text-xs bg-zinc-800 px-4 py-2 rounded-3xl">FastAPI</span>
+                            <span class="text-xs bg-zinc-800 px-4 py-2 rounded-3xl">Docker</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden">
+                    <div class="h-60 bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center text-7xl">📊</div>
+                    <div class="p-8">
+
+
+<h3 class="text-2xl font-semibold">AnalyticsPro — система аналитики</h3>
+                        <p class="text-zinc-400 mt-2">Дашборды и отчёты в реальном времени с AI-инсайтами.</p>
+                        <div class="flex flex-wrap gap-2 mt-6">
+                            <span class="text-xs bg-zinc-800 px-4 py-2 rounded-3xl">Next.js</span>
+                            <span class="text-xs bg-zinc-800 px-4 py-2 rounded-3xl">Supabase</span>
+                            <span class="text-xs bg-zinc-800 px-4 py-2 rounded-3xl">Recharts</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-24 bg-zinc-900">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-6xl font-bold hero-font">Давайте работать вместе</h2>
+            <p class="text-2xl text-zinc-400 mt-6">Напишите мне — отвечу максимально быстро</p>
+            
+            <div class="mt-12 bg-zinc-950 border border-zinc-700 rounded-3xl p-10">
+                <input type="text" placeholder="Ваше имя" class="w-full bg-transparent border border-zinc-700 focus:border-cyan-400 rounded-3xl px-8 py-6 text-lg mb-4">
+                <input type="email" placeholder="Email или Telegram" class="w-full bg-transparent border border-zinc-700 focus:border-cyan-400 rounded-3xl px-8 py-6 text-lg mb-4">
+                <textarea placeholder="Опишите ваш проект..." rows="5" class="w-full bg-transparent border border-zinc-700 focus:border-cyan-400 rounded-3xl px-8 py-6 text-lg"></textarea>
+                
+                <button onclick="alert('✅ Спасибо! Роман свяжется с вами в ближайшее время.')"
+                        class="mt-8 w-full md:w-auto px-16 py-6 bg-gradient-to-r from-cyan-400 to-violet-500 text-zinc-950 font-bold text-xl rounded-3xl hover:scale-105">
+                    Отправить сообщение
+                </button>
+            </div>
+            
+            <div class="flex justify-center gap-10 mt-12 text-4xl">
+                <a href="https://t.me/dudnikov_dev" class="hover:text-cyan-400"><i class="fa-brands fa-telegram"></i></a>
+                <a href="https://github.com/dudnikov" class="hover:text-cyan-400"><i class="fa-brands fa-github"></i></a>
+                <a href="#" class="hover:text-cyan-400"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black py-10 text-center text-zinc-500 text-sm">
+        © 2026 Роман Дудников • Fullstack Developer
+    </footer>
+
+    <script>
+        console.log('%cПортфолио Романа Дудникова загружено успешно 🚀', 'color:#22d3ee; font-size:16px; font-family:Space Grotesk');
+    </script>
+</body>
+</html>
+```
